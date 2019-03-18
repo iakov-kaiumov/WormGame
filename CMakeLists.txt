@@ -1,0 +1,140 @@
+cmake_minimum_required(VERSION 3.12)
+project(liquidfun)
+
+set(CMAKE_CXX_STANDARD 14)
+
+include_directories(Box2D)
+include_directories(Box2D/Box2D)
+include_directories(Box2D/Box2D/Collision)
+include_directories(Box2D/Box2D/Collision/Shapes)
+include_directories(Box2D/Box2D/Common)
+include_directories(Box2D/Box2D/Dynamics)
+include_directories(Box2D/Box2D/Dynamics/Contacts)
+include_directories(Box2D/Box2D/Dynamics/Joints)
+include_directories(Box2D/Box2D/Particle)
+include_directories(Box2D/Box2D/Rope)
+include_directories(Box2D/GLEmu)
+include_directories(Box2D/glui)
+
+include_directories(rapidxml-1.13)
+
+add_executable(liquidfun
+        Box2D/Box2D/Collision/Shapes/b2ChainShape.cpp
+        Box2D/Box2D/Collision/Shapes/b2ChainShape.h
+        Box2D/Box2D/Collision/Shapes/b2CircleShape.cpp
+        Box2D/Box2D/Collision/Shapes/b2CircleShape.h
+        Box2D/Box2D/Collision/Shapes/b2EdgeShape.cpp
+        Box2D/Box2D/Collision/Shapes/b2EdgeShape.h
+        Box2D/Box2D/Collision/Shapes/b2PolygonShape.cpp
+        Box2D/Box2D/Collision/Shapes/b2PolygonShape.h
+        Box2D/Box2D/Collision/Shapes/b2Shape.h
+        Box2D/Box2D/Collision/b2BroadPhase.cpp
+        Box2D/Box2D/Collision/b2BroadPhase.h
+        Box2D/Box2D/Collision/b2CollideCircle.cpp
+        Box2D/Box2D/Collision/b2CollideEdge.cpp
+        Box2D/Box2D/Collision/b2CollidePolygon.cpp
+        Box2D/Box2D/Collision/b2Collision.cpp
+        Box2D/Box2D/Collision/b2Collision.h
+        Box2D/Box2D/Collision/b2Distance.cpp
+        Box2D/Box2D/Collision/b2Distance.h
+        Box2D/Box2D/Collision/b2DynamicTree.cpp
+        Box2D/Box2D/Collision/b2DynamicTree.h
+        Box2D/Box2D/Collision/b2TimeOfImpact.cpp
+        Box2D/Box2D/Collision/b2TimeOfImpact.h
+        Box2D/Box2D/Common/b2BlockAllocator.cpp
+        Box2D/Box2D/Common/b2BlockAllocator.h
+        Box2D/Box2D/Common/b2Draw.cpp
+        Box2D/Box2D/Common/b2Draw.h
+        Box2D/Box2D/Common/b2FreeList.cpp
+        Box2D/Box2D/Common/b2FreeList.h
+        Box2D/Box2D/Common/b2GrowableStack.h
+        Box2D/Box2D/Common/b2IntrusiveList.h
+        Box2D/Box2D/Common/b2Math.cpp
+        Box2D/Box2D/Common/b2Math.h
+        Box2D/Box2D/Common/b2Settings.cpp
+        Box2D/Box2D/Common/b2Settings.h
+        Box2D/Box2D/Common/b2SlabAllocator.h
+        Box2D/Box2D/Common/b2StackAllocator.cpp
+        Box2D/Box2D/Common/b2StackAllocator.h
+        Box2D/Box2D/Common/b2Stat.cpp
+        Box2D/Box2D/Common/b2Stat.h
+        Box2D/Box2D/Common/b2Timer.cpp
+        Box2D/Box2D/Common/b2Timer.h
+        Box2D/Box2D/Common/b2TrackedBlock.cpp
+        Box2D/Box2D/Common/b2TrackedBlock.h
+        Box2D/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.cpp
+        Box2D/Box2D/Dynamics/Contacts/b2ChainAndCircleContact.h
+        Box2D/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.cpp
+        Box2D/Box2D/Dynamics/Contacts/b2ChainAndPolygonContact.h
+        Box2D/Box2D/Dynamics/Contacts/b2CircleContact.cpp
+        Box2D/Box2D/Dynamics/Contacts/b2CircleContact.h
+        Box2D/Box2D/Dynamics/Contacts/b2Contact.cpp
+        Box2D/Box2D/Dynamics/Contacts/b2Contact.h
+        Box2D/Box2D/Dynamics/Contacts/b2ContactSolver.cpp
+        Box2D/Box2D/Dynamics/Contacts/b2ContactSolver.h
+        Box2D/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.cpp
+        Box2D/Box2D/Dynamics/Contacts/b2EdgeAndCircleContact.h
+        Box2D/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.cpp
+        Box2D/Box2D/Dynamics/Contacts/b2EdgeAndPolygonContact.h
+        Box2D/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.cpp
+        Box2D/Box2D/Dynamics/Contacts/b2PolygonAndCircleContact.h
+        Box2D/Box2D/Dynamics/Contacts/b2PolygonContact.cpp
+        Box2D/Box2D/Dynamics/Contacts/b2PolygonContact.h
+        Box2D/Box2D/Dynamics/Joints/b2DistanceJoint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2DistanceJoint.h
+        Box2D/Box2D/Dynamics/Joints/b2FrictionJoint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2FrictionJoint.h
+        Box2D/Box2D/Dynamics/Joints/b2GearJoint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2GearJoint.h
+        Box2D/Box2D/Dynamics/Joints/b2Joint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2Joint.h
+        Box2D/Box2D/Dynamics/Joints/b2MotorJoint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2MotorJoint.h
+        Box2D/Box2D/Dynamics/Joints/b2MouseJoint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2MouseJoint.h
+        Box2D/Box2D/Dynamics/Joints/b2PrismaticJoint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2PrismaticJoint.h
+        Box2D/Box2D/Dynamics/Joints/b2PulleyJoint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2PulleyJoint.h
+        Box2D/Box2D/Dynamics/Joints/b2RevoluteJoint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2RevoluteJoint.h
+        Box2D/Box2D/Dynamics/Joints/b2RopeJoint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2RopeJoint.h
+        Box2D/Box2D/Dynamics/Joints/b2WeldJoint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2WeldJoint.h
+        Box2D/Box2D/Dynamics/Joints/b2WheelJoint.cpp
+        Box2D/Box2D/Dynamics/Joints/b2WheelJoint.h
+        Box2D/Box2D/Dynamics/b2Body.cpp
+        Box2D/Box2D/Dynamics/b2Body.h
+        Box2D/Box2D/Dynamics/b2ContactManager.cpp
+        Box2D/Box2D/Dynamics/b2ContactManager.h
+        Box2D/Box2D/Dynamics/b2Fixture.cpp
+        Box2D/Box2D/Dynamics/b2Fixture.h
+        Box2D/Box2D/Dynamics/b2Island.cpp
+        Box2D/Box2D/Dynamics/b2Island.h
+        Box2D/Box2D/Dynamics/b2TimeStep.h
+        Box2D/Box2D/Dynamics/b2World.cpp
+        Box2D/Box2D/Dynamics/b2World.h
+        Box2D/Box2D/Dynamics/b2WorldCallbacks.cpp
+        Box2D/Box2D/Dynamics/b2WorldCallbacks.h
+        Box2D/Box2D/Particle/b2Particle.cpp
+        Box2D/Box2D/Particle/b2Particle.h
+        Box2D/Box2D/Particle/b2ParticleGroup.cpp
+        Box2D/Box2D/Particle/b2ParticleGroup.h
+        Box2D/Box2D/Particle/b2ParticleSystem.cpp
+        Box2D/Box2D/Particle/b2ParticleSystem.h
+        Box2D/Box2D/Particle/b2StackQueue.h
+        Box2D/Box2D/Particle/b2VoronoiDiagram.cpp
+        Box2D/Box2D/Particle/b2VoronoiDiagram.h
+        Box2D/Box2D/Rope/b2Rope.cpp
+        Box2D/Box2D/Rope/b2Rope.h
+        Box2D/Box2D/Box2D.h
+        Box2D/config-darwin.h
+        Box2D/config-linux.h
+        Box2D/config-windows.h
+        Box2D/config.h
+        main.cpp view/DebugDraw.cpp view/DebugDraw.h model/QueryCallback.cpp model/QueryCallback.h model/Model.cpp model/Model.h controller/Game.cpp controller/Game.h vehicles/Vehicle.h vehicles/Boat.h model/Stirrer.h view/Draw.cpp view/Draw.h utils/Utils.h vehicles/BodyTextureData.h vehicles/Body.h vehicles/Body.cpp sound/Sound.cpp sound/Sound.h utils/MyRandom.h view/BasicDraw.h controller/GameInfo.h)
+
+
+include_directories(/usr/share/SFML//cmake/Modules)
+target_link_libraries(liquidfun sfml-system sfml-window sfml-graphics sfml-network sfml-audio)
