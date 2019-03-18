@@ -9,6 +9,7 @@ class Body {
 public:
     void loadFixturesFromFile(const char *path, float scale = 1, float density = 0);
     b2Body *body;
+    
 };
 
 #endif //LIQUIDFUN_BODY_H
